@@ -38,4 +38,14 @@ class Email extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAllEmails()
+    {
+        return $this->findAll();
+    }
+
+    public function getEmailById($id)
+    {
+        return $this->where(['email_id', $id])->first();
+    }
 }
