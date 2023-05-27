@@ -46,6 +46,6 @@ class Email extends Model
 
     public function getEmailById($id)
     {
-        return $this->where(['email_id', $id])->first();
+        return $this->where(['email_id' => $id])->first();
     }
 }

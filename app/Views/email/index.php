@@ -9,7 +9,7 @@
                 <div class="main">
                     <?= esc($email_item['body']) ?>
                 </div>
-                <p><a href="/news/<?= esc($email_item['email_id'], 'url') ?>">View Email</a></p>
+                <p><a href="/email/<?= esc($email_item['email_id'], 'url') ?>">View Email</a></p>
             <?php endforeach ?>
         <?php else: ?>
             <h3>No News</h3>

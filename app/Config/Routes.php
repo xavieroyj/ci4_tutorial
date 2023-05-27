@@ -34,7 +34,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 $routes->get('/email', [EmailController::class, 'index']);
-
+$routes->get('/email/(:num)', [EmailController::class, 'show']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
