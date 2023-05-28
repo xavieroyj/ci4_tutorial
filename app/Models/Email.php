@@ -8,7 +8,7 @@ class Email extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'emails';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'email_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
@@ -47,5 +47,9 @@ class Email extends Model
     public function getEmailById($id)
     {
         return $this->where(['email_id' => $id])->first();
+    }
+
+    public function deleteEmailById($id) {
+        return $this->where('email_id', $id)->delete();
     }
 }

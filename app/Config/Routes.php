@@ -34,7 +34,12 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 $routes->get('/email', [EmailController::class, 'index']);
+$routes->get('/email/create', [EmailController::class, 'create']);
 $routes->get('/email/(:num)', [EmailController::class, 'show']);
+$routes->get('/email/(:num)/edit', [EmailController::class, 'edit']);
+$routes->delete('/email/(:num)', [EmailController::class, 'destroy']);
+$routes->post('/email/store', [EmailController::class, 'store']);
+$routes->post('/email/(:num)', [EmailController::class, 'update']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
