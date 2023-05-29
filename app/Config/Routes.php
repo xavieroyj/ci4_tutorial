@@ -3,6 +3,7 @@
 namespace Config;
 
 use App\Controllers\EmailController;
+use App\Controllers\Home;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
@@ -32,6 +33,10 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/lucky-number', [Home::class, 'lucky_number']);
+$routes->get('/table-alternative-row-bg', [Home::class, 'table_alternative_row_bg']);
+$routes->get('/credit-card', [Home::class, 'credit_card']);
+
 
 $routes->get('/email', [EmailController::class, 'index']);
 $routes->get('/email/create', [EmailController::class, 'create']);
