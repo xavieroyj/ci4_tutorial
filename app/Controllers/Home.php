@@ -1,6 +1,8 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Creditinfo;
+
 class Home extends BaseController
 {
     public function index()
@@ -33,5 +35,14 @@ class Home extends BaseController
             'yearArray' => $yearArray
         ];
         return view('credit_card', $data);
+    }
+
+    public function credit_store() {
+        $postRequestData = $this->request->getPost(['credit-card', 'months', 'years']);
+        $creditModel = model(Creditinfo::class);
+        $creditModel->save([
+            'credit-info' => serialize($postRequestData)
+        ]);
+        return view('/success_credit');
     }
 }
