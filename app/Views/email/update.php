@@ -5,7 +5,7 @@
     </head>
 
     <body>
-        <form action="<?php base_url('/email/$email["email_id"]') ?>" method="POST">
+        <form action="<?php echo base_url("/email/{$email['email_id']}"); ?>" method="POST">
             <label for="to">To: </label>
             <input type="input" name="to" value="<?= $email['to'] ?>">
             <br>

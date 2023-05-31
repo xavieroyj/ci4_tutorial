@@ -8,7 +8,7 @@
         <p><?= esc($email['title']) ?></p>
         <p><?= esc($email['body']) ?></p>
 
-        <a href="/email/<?= esc($email['email_id'], 'url') ?>/edit"><button>Edit</button></a>
+        <a href="<?php echo base_url('/email/' . $email['email_id'] . '/edit'); ?>"><button>Edit</button></a>
         <button onclick="deleteEmail(<?= esc($email['email_id'], 'url') ?>)">Delete email</button>
 
         <script>
