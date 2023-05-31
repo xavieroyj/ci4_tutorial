@@ -13,7 +13,7 @@
 
         <script>
             function deleteEmail(id) {
-                fetch('/email/' + id,  {
+                fetch(<?php base_url('/email') ?> + id,  {
                     method: 'DELETE',
                     redirect: "follow",
                 }).then(response => {

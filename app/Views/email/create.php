@@ -8,7 +8,7 @@
         <?= session()->getFlashdata('error') ?>
         <?= validation_list_errors() ?>
         
-        <form action="/email/store" method="POST">
+        <form action="<?php base_url('/email/store') ?>" method="POST">
             <?= csrf_field() ?>
 
             <label for="to">To: </label>
