@@ -37,6 +37,9 @@ $routes->get('/lucky-number', [Home::class, 'lucky_number']);
 $routes->get('/table-alternative-row-bg', [Home::class, 'table_alternative_row_bg']);
 $routes->get('/credit-card', [Home::class, 'credit_card']);
 $routes->post('/credit-card/store', [Home::class, 'credit_store']);
+$routes->get('/toto-bet-slip', [Home::class, 'toto_bet_slip']);
+$routes->get('/toto-results', [Home::class, 'toto_result']);
+
 
 $routes->get('/email', [EmailController::class, 'index']);
 $routes->get('/email/create', [EmailController::class, 'create']);
@@ -45,6 +48,8 @@ $routes->get('/email/(:num)/edit', [EmailController::class, 'edit']);
 $routes->delete('/email/(:num)', [EmailController::class, 'destroy']);
 $routes->post('/email/store', [EmailController::class, 'store']);
 $routes->post('/email/(:num)', [EmailController::class, 'update']);
+
+$routes->get('/creditView', [Home::class, 'creditView']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

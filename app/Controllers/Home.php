@@ -24,6 +24,15 @@ class Home extends BaseController
         return view('table_alternative_row_bg', $data);
     }
 
+    public function creditView() {
+        $creditModel = model(Creditinfo::class);
+        $creditData = $creditModel->getAllCreditInfo();
+        $data = [
+            'credit-info' => unserialize($creditData['credit-info'])
+        ];
+        return view('creditView', $data);
+    }
+
     public function credit_card() {
         helper('html');
 
@@ -31,10 +40,11 @@ class Home extends BaseController
         $yearArray = range(2023, 2063);
 
         $data = [
+            'title' => "Add Credit Card",
             'monthArray' => $monthArray,
             'yearArray' => $yearArray
         ];
-        return view('credit_card', $data);
+        return (View('templates/header', $data) . View('credit_card') . View('templates/footer'));
     }
 
     public function credit_store() {
@@ -44,5 +54,18 @@ class Home extends BaseController
             'credit-info' => serialize($postRequestData)
         ]);
         return view('/success_credit');
+    }
+
+    public function toto_bet_slip() {
+        $data = ['title' => "Toto Bet Slip"];
+        return (View('templates/header', $data) . View('toto/bet_slip') . View('templates/footer'));
+    }
+
+    public function toto_result() {
+        // Randomly generate 
+
+
+        $data = ['title' => "Toto Results"];
+        return (View('templates/header', $data) . View('toto/results') . View('templates/footer'));
     }
 }

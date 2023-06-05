@@ -38,4 +38,8 @@ class Creditinfo extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAllCreditInfo() {
+        return $this->findAll();
+    }
 }

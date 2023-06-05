@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Email;
 use CodeIgniter\HTTP\IncomingRequest;
+use Config\View;
 
 class EmailController extends BaseController
 {
@@ -12,7 +13,13 @@ class EmailController extends BaseController
     {
         $emailModel = model(Email::class);
         $data['emails'] = $emailModel->getAllEmails();
-        return view('/email/index', $data);
+
+        $data = [
+            'emails' => $emailModel->getAllEmails(),
+            'title' => "Emails",
+        ];
+
+        return (View('templates/header', $data) . View('email/index') . View('templates/footer'));
     }
 
     public function show($emailId) {
