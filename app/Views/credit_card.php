@@ -3,7 +3,7 @@
     <head><title>Credit Card</title></head>
 
     <body>
-        <form action="<?php base_url('/credit-card/store') ?>"  method="post">
+        <form action="<?php echo base_url('/credit-card/store') ?>"  method="post">
             <label for="credit-card">Credit Card Number: </label>
             <input type="number" name="credit-card">
 
