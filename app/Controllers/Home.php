@@ -24,15 +24,6 @@ class Home extends BaseController
         return view('table_alternative_row_bg', $data);
     }
 
-    public function creditView() {
-        $creditModel = model(Creditinfo::class);
-        $creditData = $creditModel->getAllCreditInfo();
-        $data = [
-            'credit-info' => unserialize($creditData['credit-info'])
-        ];
-        return view('creditView', $data);
-    }
-
     public function credit_card() {
         helper('html');
 
@@ -56,6 +47,15 @@ class Home extends BaseController
         return view('/success_credit');
     }
 
+    public function creditView() {
+        $creditModel = model(Creditinfo::class);
+        $creditData = $creditModel->getAllCreditInfo();
+        $data = [
+            'credit_info' => $creditData,
+        ];
+        return view('creditView', $data);
+    }
+
     public function toto_bet_slip() {
         $data = ['title' => "Toto Bet Slip"];
         return (View('templates/header', $data) . View('toto/bet_slip') . View('templates/footer'));
@@ -63,9 +63,15 @@ class Home extends BaseController
 
     public function toto_result() {
         // Randomly generate 
+        $randomWinningNo = range(1, 49);
+        shuffle($randomWinningNo);
+        $randomWinningNo = array_slice($randomWinningNo, 0, 6);
 
-
-        $data = ['title' => "Toto Results"];
+        $data = [
+            'title' => "Toto Results",
+            'winningNo' => $randomWinningNo,
+            'additionalNo' => rand(1, 49),
+        ];
         return (View('templates/header', $data) . View('toto/results') . View('templates/footer'));
     }
 }
